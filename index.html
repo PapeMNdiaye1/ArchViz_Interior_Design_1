@@ -12,9 +12,10 @@
     <title>
         Décoration Intérieur
     </title>
-    <script rel=preload src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script rel=preload
-        src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    <script rel=preload src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script rel=preload src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js">
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./Style/Style.css">
@@ -106,27 +107,25 @@
         <!-- Group-0. -->
         <a-entity scale="1 1 1" rotation="0 0 0" class="groups" id="Group-0" visible="true">
 
-            <a-plane data-clickable class="pintings clickable" position="-3.92648 -1 -1.6102"
-                rotation="-87.00134935943498 177.6988494552589 -85.61249966403787"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="pintings clickable"
+                position="-3.92648 -1 -1.6102" rotation="-87.00134935943498 177.6988494552589 -85.61249966403787"
                 material="src: #Arrow-1; transparent:true"
                 the_dote="Name_of_dote: Dote-1 ; Group_to_activate: Group-1 ; The_rotation: 120">
             </a-plane>
-
-
 
         </a-entity>
 
         <!-- Group-1. -->
         <a-entity scale="0 0 0" class="groups" id="Group-1" visible="false">
 
-            <a-plane data-clickable class="pintings clickable" position="3.17666 -1 2.28265"
-                rotation="-86.8993628719017 -165.09377796238078 -102.84363239480226"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="pintings clickable"
+                position="3.17666 -1 2.28265" rotation="-86.8993628719017 -165.09377796238078 -102.84363239480226"
                 material="src: #Arrow-1; transparent:true"
                 the_dote="Name_of_dote: Dote-0  ; Group_to_activate: Group-0 ; The_rotation: 0">
             </a-plane>
 
-            <a-plane data-clickable class="pintings clickable" position="-1.72447 -0.52824 4.6171"
-                rotation="-79.5271149219534 106.71167046973044 -14.36519783952"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="pintings clickable"
+                position="-1.72447 -0.52824 4.6171" rotation="-79.5271149219534 106.71167046973044 -14.36519783952"
                 material="src: #Arrow-1; transparent:true"
                 the_dote="Name_of_dote: Dote-3  ; Group_to_activate: Group-3 ; The_rotation: 140">
             </a-plane>
@@ -136,8 +135,8 @@
         <!-- Group-2 -->
         <a-entity scale="0 0 0" class="groups" id="Group-2" visible="false">
 
-            <a-plane data-clickable class="Dote" material="src: #Arrow-1; transparent:true"
-                position="-0.22851 -0.32914 4.43496"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="Dote"
+                material="src: #Arrow-1; transparent:true" position="-0.22851 -0.32914 4.43496"
                 rotation="-85.91903208443286 23.868275829559835 -112.39999545978925"
                 the_dote="Name_of_dote: Dote-3 ; Group_to_activate: Group-3 ; The_rotation: 140">
             </a-plane>
@@ -146,14 +145,14 @@
         <!-- Group-3 -->
         <a-entity scale="0 0 0" class="groups" id="Group-3" visible="false">
 
-            <a-plane data-clickable class="Dote" material="src: #Arrow-1; transparent:true"
-                position="0.82422 -0.94886 -3.47484"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="Dote"
+                material="src: #Arrow-1; transparent:true" position="0.82422 -0.94886 -3.47484"
                 rotation="-88.1541404432382 -153.79791503137662 -119.21303660168986"
                 the_dote="Name_of_dote: Dote-1 ; Group_to_activate: Group-1 ; The_rotation:   120">
             </a-plane>
 
-            <a-plane data-clickable class="Dote" material="src: #Arrow-1; transparent:true"
-                position="-2.88322 -0.94886 -1.85767"
+            <a-plane data-clickable scale='0.9 0.9 0.9' opacity='.5' class="Dote"
+                material="src: #Arrow-1; transparent:true" position="-2.88322 -0.94886 -1.85767"
                 rotation="-88.1541404432382 -153.79791503137662 -119.21303660168986"
                 the_dote="Name_of_dote: Dote-2 ; Group_to_activate: Group-2 ; The_rotation:   100">
             </a-plane>
@@ -176,7 +175,6 @@
         let TheImageBackCover = document.querySelector('.The_Image_Back_Cover')
         let oneImage = document.querySelectorAll('.oneImage')
         let theBlachHover = document.querySelector('.the_blach_hover')
-
 
         theGallery.addEventListener('click', () => {
             if (theGallery.classList.length === 1) {
@@ -208,14 +206,11 @@
             }
         })
 
-
         oneImage.forEach((image, index) => {
             image.addEventListener('click', (e) => {
                 TheImage.childNodes[1].setAttribute("src", `./Style/Images/gallery/Image-${index + 1}.jpg`)
             })
         });
-
-
 
         AFRAME.registerComponent('the_dote', {
             schema: { Name_of_dote: { type: 'string', default: '#Name', }, Group_to_activate: { type: 'string', default: '#Position', }, The_rotation: { type: 'string', default: '0', } },
@@ -225,12 +220,9 @@
                 let Group_to_activate = this.data.Group_to_activate
                 let TheRotation = this.data.The_rotation
                 let The_Arrow = this.el
-                this.el.setAttribute('color', '#fff')
-                this.el.setAttribute('opacity', '0.5')
                 this.el.setAttribute('event-set__mouseenter', "scale: 1.1 1.1 1.1 ; opacity : 1;  color: #fff")
                 this.el.setAttribute('event-set__mouseleave', "scale: 0.9 0.9 0.9 ; opacity : 0.5 ;  color: #fff")
                 this.el.addEventListener('click', (theDote) => {
-
                     theBlachHover.style.transitionDelay = '0s , 0s';
                     theBlachHover.style.opacity = '1';
                     theBlachHover.style.height = '100vh';
@@ -238,7 +230,6 @@
                         theBlachHover.style.transitionDelay = '0s , .3s';
                         the_sky.setAttribute('src', `#Scene-${Dote_Name.substring(5)}`)
                         let the_group_to_activate = document.querySelector(`#${Group_to_activate}`)
-
                         groups.forEach(group => {
                             group.setAttribute('visible', 'false')
                             group.setAttribute('scale', '0 0 0')
