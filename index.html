@@ -30,6 +30,17 @@
         Nous vous aidons dans l’aménagement de vos espaces.
     </div>
 
+    <div class='hover_loader_container'>
+        <div class='hover_loader'>
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <div class="the_gallery_container">
 
         <div class="oneImage">
@@ -165,6 +176,8 @@
         <!-- ############################################################ -->
     </a-scene>
     <script>
+        let loaderContainer = document.querySelector('.hover_loader_container')
+
         let groups = document.querySelectorAll('.groups')
         let theInfo = document.querySelector('.the_info')
         let theDescription = document.querySelector('.the_description')
@@ -176,6 +189,8 @@
         let TheImageBackCover = document.querySelector('.The_Image_Back_Cover')
         let oneImage = document.querySelectorAll('.oneImage')
         let theBlachHover = document.querySelector('.the_blach_hover')
+        let img_1 = document.querySelector('#Scene-0')
+
 
         theGallery.addEventListener('click', () => {
             if (theGallery.classList.length === 1) {
@@ -247,6 +262,17 @@
                 });
             }
         });
+        const theInt = setInterval(intFunc, 4000)
+
+        function intFunc() {
+            if (img_1.complete) {
+                loaderContainer.style.display = "none"
+                console.log(img_1.complete);
+                clearInterval(theInt);
+            } else {
+                console.log(img_1.complete);
+            }
+        }
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
