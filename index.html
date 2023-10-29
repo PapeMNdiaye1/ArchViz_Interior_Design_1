@@ -24,11 +24,7 @@
 </head>
 
 <body>
-    <div class="the_description">
-        À l'aide des logiciels de dernière génération et de notre savoir-faire dans le domaine de l’architecture
-        d’intérieur.
-        Nous vous aidons dans l’aménagement de vos espaces.
-    </div>
+
 
     <div class='hover_loader_container'>
         <div class='hover_loader'>
@@ -78,10 +74,6 @@
     <a class="link_to_archviz" href="https://archviz-dakar.com/" target="_blank">
     </a>
 
-    <div class="the_info">
-        <ion-icon name="alert-outline"></ion-icon>
-        <ion-icon name="close-outline"></ion-icon>
-    </div>
 
     <div class="the_gallery">
         <ion-icon name="camera-outline"></ion-icon>
@@ -179,8 +171,6 @@
         let loaderContainer = document.querySelector('.hover_loader_container')
 
         let groups = document.querySelectorAll('.groups')
-        let theInfo = document.querySelector('.the_info')
-        let theDescription = document.querySelector('.the_description')
         let the_sky = document.querySelector('#image-360')
         let the_cursor = document.querySelector('.a-mouse-cursor-hover')
         let theGallery = document.querySelector('.the_gallery')
@@ -212,15 +202,6 @@
             }
         })
 
-        theInfo.addEventListener('click', () => {
-            if (theInfo.classList.length === 1) {
-                theInfo.classList.add("the_info_active")
-                theDescription.style.bottom = '8%';
-            } else {
-                theDescription.style.bottom = '';
-                theInfo.classList.remove("the_info_active")
-            }
-        })
 
         oneImage.forEach((image, index) => {
             image.addEventListener('click', (e) => {
